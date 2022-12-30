@@ -12,13 +12,21 @@ struct PhotoView: View {
 
     var body: some View {
         VStack {
-            Image("\(photo.id)")
+            // Need to figure out how to reference the file name at the URL
+
+            displayImage(imageNamed: "\(photo.id)")
                 .resizable()
                 .scaledToFit()
             Text("\(photo.name)")
             Spacer()
         }
         .padding()
+    }
+
+    func displayImage(imageNamed: String) -> Image {
+        guard let displayImage = UIImage(contentsOfFile: imageNamed) else { return Image(systemName: "error")}
+        print("\(displayImage.description)")
+        return Image(uiImage: displayImage)
     }
 }
 
