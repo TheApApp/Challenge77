@@ -24,7 +24,7 @@ struct PhotoView: View {
     }
 
     func displayImage(imageNamed: String) -> Image {
-        guard let displayImage = UIImage(contentsOfFile: imageNamed) else { return Image(systemName: "error")}
+        guard let displayImage = UIImage(contentsOfFile: imageNamed) else { return Image(systemName: "nosign")}
         print("\(displayImage.description)")
         return Image(uiImage: displayImage)
     }
