@@ -17,7 +17,6 @@ class ImageSaver: NSObject {
 
     func writeToDocumentsDirectory(image: UIImage, named: String) {
         let url = FileManager.documentDirectory.appending(path: named)
-        print("url = \(url)")
         if let jpegData = image.jpegData(compressionQuality: 0.8) {
             do {
                 try jpegData.write(to: url, options: [.atomic, .completeFileProtection])

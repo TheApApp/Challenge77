@@ -28,12 +28,20 @@ struct ContentView: View {
             }
             .onChange(of: viewModel.inputImage) { _ in
                 // Need to prompt to name the file
+    
                 viewModel.saveImage()
             }
             .alert("Ooops!", isPresented: $viewModel.showingSaveError) {
                 Button("OK") {}
             } message: {
                 Text("Sorry, there was an error saving your image - please check that you have granted permission to save images.")
+            }
+            .alert("Name", isPresented: $viewModel.showingNamePrompt) {
+                Button("OK") {
+
+                }
+            } message: {
+                Text("Please provide a name so you can remember them later.")
             }
         }
     }

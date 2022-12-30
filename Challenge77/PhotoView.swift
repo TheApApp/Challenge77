@@ -27,7 +27,6 @@ struct PhotoView: View {
         let path = "\(FileManager.documentDirectory.appending(path: imageNamed))"
         // remove the file:// from the path before access contents of (this is UGLY)
         guard let displayImage = UIImage(contentsOfFile: String(path.dropFirst(7))) else { return Image(systemName: "nosign")}
-        print("\(displayImage.description)")
         return Image(uiImage: displayImage)
     }
 }
