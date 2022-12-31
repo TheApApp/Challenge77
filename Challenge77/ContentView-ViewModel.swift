@@ -18,6 +18,7 @@ extension ContentView {
         @Published var showingSaveError = false
 
         @Published var showingNamePrompt = false
+        @Published var name = "Uknown"
 
 
         let photo = Photo.example
@@ -58,7 +59,7 @@ extension ContentView {
                 print("Ooops \($0.localizedDescription)")
             }
 
-            photos.append(Photo(id: uuid, name: "NEED NAME"))
+            photos.append(Photo(id: uuid, name: name))
             save()
 
             imageSaver.writeToDocumentsDirectory(image: inputImage, named: String("\(uuid)"))

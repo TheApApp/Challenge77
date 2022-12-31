@@ -27,9 +27,7 @@ struct ContentView: View {
                 ImagePicker(image: $viewModel.inputImage)
             }
             .onChange(of: viewModel.inputImage) { _ in
-                // Need to prompt to name the file
-    
-                viewModel.saveImage()
+                viewModel.showingNamePrompt = true
             }
             .alert("Ooops!", isPresented: $viewModel.showingSaveError) {
                 Button("OK") {}
@@ -37,9 +35,8 @@ struct ContentView: View {
                 Text("Sorry, there was an error saving your image - please check that you have granted permission to save images.")
             }
             .alert("Name", isPresented: $viewModel.showingNamePrompt) {
-                Button("OK") {
-
-                }
+                TextField("Enter name", text: $viewModel.name)
+                    .onSubmit(viewModel.saveImage)
             } message: {
                 Text("Please provide a name so you can remember them later.")
             }
