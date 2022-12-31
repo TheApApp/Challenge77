@@ -18,7 +18,7 @@ extension ContentView {
         @Published var showingSaveError = false
 
         @Published var showingNamePrompt = false
-        @Published var name = "Uknown"
+        @Published var name = "Unknown Name"
 
 
         let photo = Photo.example
@@ -47,7 +47,6 @@ extension ContentView {
         func saveImage() {
             guard let inputImage = inputImage else { return }
             let uuid = UUID()
-            print("UUID = \(uuid)")
 
             let imageSaver = ImageSaver()
 

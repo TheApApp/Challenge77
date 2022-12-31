@@ -20,12 +20,12 @@ struct ImagePicker: UIViewControllerRepresentable {
 
         func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
             picker.dismiss(animated: true)  // let's get rid of the picker
-
+            
             guard let provider = results.first?.itemProvider else { return } // let's see if there is anything in the provider if not bail out
 
             if provider.canLoadObject(ofClass: UIImage.self) {
                 provider.loadObject(ofClass: UIImage.self ) { image, _ in
-                    self.parent.image = image as? UIImage // need to type cast
+                        self.parent.image = image as? UIImage // need to type cast
                 }
             }
         }
