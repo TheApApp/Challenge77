@@ -36,7 +36,9 @@ struct ContentView: View {
             }
             .alert("Name", isPresented: $viewModel.showingNamePrompt) {
                 TextField("Enter name", text: $viewModel.name)
-                    .onSubmit(viewModel.saveImage)
+                    .onSubmit {
+                        viewModel.saveImage()
+                    }
             } message: {
                 Text("Please provide a name so you can remember them later.")
             }
