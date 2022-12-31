@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18CFF95E2960DD5400F47A81 /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CFF95D2960DD5400F47A81 /* LocationFetcher.swift */; };
 		18D70815295E6A8A00B574F7 /* Challenge77App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D70814295E6A8A00B574F7 /* Challenge77App.swift */; };
 		18D70817295E6A8A00B574F7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D70816295E6A8A00B574F7 /* ContentView.swift */; };
 		18D70819295E6A8C00B574F7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D70818295E6A8C00B574F7 /* Assets.xcassets */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		18CFF95C2960D72D00F47A81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		18CFF95D2960DD5400F47A81 /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		18D70811295E6A8A00B574F7 /* Challenge77.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Challenge77.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D70814295E6A8A00B574F7 /* Challenge77App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge77App.swift; sourceTree = "<group>"; };
 		18D70816295E6A8A00B574F7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				18D7082A295E820D00B574F7 /* FileManager-DocumentsDirectory.swift */,
 				18D70826295E763700B574F7 /* ImagePicker.swift */,
 				18D70828295E7A1500B574F7 /* ImageSaver.swift */,
+				18CFF95D2960DD5400F47A81 /* LocationFetcher.swift */,
 				18D70824295E74AD00B574F7 /* PhotoView.swift */,
 				18D70822295E6D0700B574F7 /* Photo.swift */,
 				18D70818295E6A8C00B574F7 /* Assets.xcassets */,
@@ -165,6 +168,7 @@
 				18D7082F295F5A5500B574F7 /* ContentView-ViewModel.swift in Sources */,
 				18D70815295E6A8A00B574F7 /* Challenge77App.swift in Sources */,
 				18D70825295E74AD00B574F7 /* PhotoView.swift in Sources */,
+				18CFF95E2960DD5400F47A81 /* LocationFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +302,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Challenge77/Info.plist;
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need to be able to save the data.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need location for saving where you met the face.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -328,6 +333,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Challenge77/Info.plist;
 				INFOPLIST_KEY_NSDocumentsFolderUsageDescription = "We need to be able to save the data.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need location for saving where you met the face.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

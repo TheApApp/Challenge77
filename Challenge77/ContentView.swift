@@ -22,6 +22,11 @@ struct ContentView: View {
                 } label: {
                     Image(systemName: "plus")
                 }
+                Button {
+                    viewModel.locationTracking.toggle()
+                } label: {
+                    Image(systemName: viewModel.locationTracking ? "location" : "location.slash")
+                }
             }
             .sheet(isPresented: $viewModel.showingPhotoPicker) {
                 ImagePicker(image: $viewModel.inputImage)

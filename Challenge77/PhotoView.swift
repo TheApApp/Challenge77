@@ -5,10 +5,17 @@
 //  Created by Michael Rowe on 12/29/22.
 //
 
+import MapKit
 import SwiftUI
+
+struct MapLocation {
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
 
 struct PhotoView: View {
     let photo: Photo
+    @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
 
     var body: some View {
         VStack {
@@ -19,8 +26,15 @@ struct PhotoView: View {
                 .scaledToFit()
             Text("\(photo.name)")
             Spacer()
+            Map(coordinateRegion: $mapRegion)
+            Spacer()
         }
         .padding()
+    }
+
+    init(photo: Photo) {
+        _mapRegion = State(initialValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: photo.location?.latitude ?? 51.5, longitude: photo.location?.longitude ?? -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)))
+        self.photo = photo
     }
 
     func displayImage(imageNamed: String) -> Image {

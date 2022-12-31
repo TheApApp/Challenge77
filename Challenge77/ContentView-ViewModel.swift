@@ -20,6 +20,9 @@ extension ContentView {
         @Published var showingNamePrompt = false
         @Published var name = "Unknown Name"
 
+        @Published var locationFetcher = LocationFetcher()
+        @Published var locationTracking = false
+
 
         let photo = Photo.example
 
@@ -58,7 +61,18 @@ extension ContentView {
                 print("Ooops \($0.localizedDescription)")
             }
 
-            photos.append(Photo(id: uuid, name: name))
+            if locationTracking {
+                print("tracking location")
+                if let location = self.locationFetcher.lastKnownLocation {
+                    photos.append(Photo(id: uuid, name: name, location: Location(latitude: location.latitude, longitude: location.latitude)))
+                    print("Location is \(location.longitude) by \(location.latitude)")
+                } else {
+                    photos.append(Photo(id: uuid, name: name))
+                }
+            } else {
+                print("No location traxking")
+                photos.append(Photo(id: uuid, name: name))
+            }
             save()
 
             imageSaver.writeToDocumentsDirectory(image: inputImage, named: String("\(uuid)"))
