@@ -24,6 +24,11 @@ struct ContentView: View {
                 }
                 Button {
                     viewModel.locationTracking.toggle()
+                    if viewModel.locationTracking {
+                        viewModel.locationFetcher.start()
+                    } else {
+                        viewModel.locationFetcher.stop()
+                    }
                 } label: {
                     Image(systemName: viewModel.locationTracking ? "location" : "location.slash")
                 }
@@ -41,13 +46,15 @@ struct ContentView: View {
             }
             .alert("Name", isPresented: $viewModel.showingNamePrompt) {
                 TextField("Enter name", text: $viewModel.name)
-                    .onSubmit {
-                        viewModel.saveImage()
-                    }
+                Button("OK", action: viewModel.saveImage)
             } message: {
                 Text("Please provide a name so you can remember them later.")
             }
         }
+    }
+
+    func submit() {
+        viewModel.saveImage()
     }
 
 }

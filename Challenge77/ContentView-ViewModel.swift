@@ -64,7 +64,7 @@ extension ContentView {
             if locationTracking {
                 print("tracking location")
                 if let location = self.locationFetcher.lastKnownLocation {
-                    photos.append(Photo(id: uuid, name: name, location: Location(latitude: location.latitude, longitude: location.latitude)))
+                    photos.append(Photo(id: uuid, name: name, location: Location(latitude: location.latitude, longitude: location.longitude)))
                     print("Location is \(location.longitude) by \(location.latitude)")
                 } else {
                     photos.append(Photo(id: uuid, name: name))

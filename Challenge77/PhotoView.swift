@@ -33,7 +33,7 @@ struct PhotoView: View {
     }
 
     init(photo: Photo) {
-        _mapRegion = State(initialValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: photo.location?.latitude ?? 51.5, longitude: photo.location?.longitude ?? -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)))
+        _mapRegion = State(initialValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: photo.location?.latitude ?? 51.5, longitude: photo.location?.longitude ?? -0.12), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)))
         self.photo = photo
     }
 

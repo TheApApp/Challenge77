@@ -21,6 +21,10 @@ class LocationFetcher: NSObject, CLLocationManagerDelegate {
         manager.startUpdatingLocation()
     }
 
+    func stop() {
+        manager.stopUpdatingLocation()
+    }
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         lastKnownLocation = locations.first?.coordinate
     }
