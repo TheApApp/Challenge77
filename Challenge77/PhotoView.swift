@@ -8,7 +8,8 @@
 import MapKit
 import SwiftUI
 
-struct MapLocation {
+struct MapLocation: Identifiable {
+    let id = UUID()
     let name: String
     let coordinate: CLLocationCoordinate2D
 }
@@ -16,6 +17,7 @@ struct MapLocation {
 struct PhotoView: View {
     let photo: Photo
     @State private var mapRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+    @State private var mapLocation = MapLocation(name: "Unknown", coordinate: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12))
 
     var body: some View {
         VStack {
@@ -26,14 +28,18 @@ struct PhotoView: View {
                 .scaledToFit()
             Text("\(photo.name)")
             Spacer()
-            Map(coordinateRegion: $mapRegion)
+            Map(coordinateRegion: $mapRegion, annotationItems: [mapLocation]) {
+                MapPin(coordinate: $0.coordinate)
+            }
+            .frame(width: 300)
             Spacer()
         }
         .padding()
     }
 
     init(photo: Photo) {
-        _mapRegion = State(initialValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: photo.location?.latitude ?? 51.5, longitude: photo.location?.longitude ?? -0.12), span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)))
+        _mapRegion = State(initialValue: MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: photo.location?.latitude ?? 51.5, longitude: photo.location?.longitude ?? -0.12), span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)))
+        _mapLocation = State(initialValue: MapLocation(name: photo.name, coordinate:CLLocationCoordinate2D(latitude: photo.location?.latitude ?? 51.5, longitude: photo.location?.longitude ?? -0.12)))
         self.photo = photo
     }
 
